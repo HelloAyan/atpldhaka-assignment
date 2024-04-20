@@ -56,6 +56,14 @@ export default function App() {
 
   const addPerson = () => {
 
+    // Added code to fix Bug 2
+    const name = addPersonInputRef.current.value;
+    if (name.trim() === "") {
+      alert("Please enter a name.");
+      return;
+    }
+
+
     // feat: re-sort the list after adding the new person.
     const index = binarySearch(name, sortBy, people);
     const newPeople = people.slice();
